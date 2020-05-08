@@ -38,23 +38,39 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <v-container>
+        <router-view/>
+      </v-container>
     </v-content>
+    <v-bottom-navigation
+      :value="activeBtn"
+      color="primary lighten-1"
+    >
+      <v-btn
+        v-for="(value, index) in routes"
+        v-bind:key="index"
+        :to="value.route"
+      >
+        {{ value.name }}
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
   },
-
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      routes: [
+        {name: 'Posts', route: '/'},
+        {name: 'SignIn', route: '/signin'},
+        {name: 'About', route: '/about'}
+      ]
+    }
+  }
 };
 </script>
