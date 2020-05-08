@@ -1,1 +1,10 @@
-{}
+{
+	"auth": {
+		"scan4899c02d": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
