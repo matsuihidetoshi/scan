@@ -1,0 +1,14 @@
+type Post
+  @model 
+  @auth(rules: [
+    {allow: owner},
+    {allow: private, queries: [get, list], mutations: null}
+  ])
+  @key(name: "SortByTimestamp", fields:["type", "timestamp"], queryField: "listPostsSortedByTimestamp")
+  @searchable
+{
+  type: String!
+  id: ID!
+  content: String!
+  timestamp: AWSTimestamp!
+}
